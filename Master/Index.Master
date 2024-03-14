@@ -1,0 +1,55 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Index.Master.cs" Inherits="ProyectoLastLink.Master.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>
+        <asp:ContentPlaceHolder ID="title" runat="server"></asp:ContentPlaceHolder>
+
+    </title>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+                <header>
+          
+                <nav class="navbar" role="navigation" aria-label="main navigation">
+                  <div class="navbar-brand">
+                    
+
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                      <span aria-hidden="true"></span>
+                      <span aria-hidden="true"></span>
+                      <span aria-hidden="true"></span>
+                    </a>
+                  </div>
+
+                  
+                </nav>
+ 
+ 
+ 
+        </header>
+
+        <div>
+            <asp:ContentPlaceHolder ID="body" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>ICMA</strong> Dearrollado por Ivan Carreño y Miguel Antunez. Website perteneca lastlink.
+    </p>
+  </div>
+</footer>
+    </form>
+</body>
+</html>

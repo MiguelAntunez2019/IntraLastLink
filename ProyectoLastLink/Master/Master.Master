@@ -1,0 +1,292 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="ProyectoLastLink.Master.Master" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>
+       
+      <asp:ContentPlaceHolder ID="title" runat="server"></asp:ContentPlaceHolder>
+  </title>
+
+    <link rel="stylesheet" type="text/css" href="../Pages/style.css" />
+    <script src="https://polyfill.io/v3/polyfill.js?features=default"></script>
+
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="../js/jquery-3.7.1.js"></script>
+        <link href="../css/bootstrap.css" rel="stylesheet" />
+        <script src="../js/bootstrap.min.js"></script>
+
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-steps@2.2.1/dist/css/bulma-steps.min.css">
+
+         <script src= "https://use.fontawesome.com/releases/v5.15.4/js/all.js"> </script> 
+     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+  
+    </asp:ContentPlaceHolder>
+
+
+
+
+</head>
+
+
+
+
+
+<body>
+
+   
+    <form id="form1" runat="server">
+        <header>
+      
+
+                       <nav class="navbar" role="navigation" aria-label="main navigation">
+                  <div class="navbar-brand">
+                    <a class="navbar-item" href="https://www.lastlink.cl/">
+                      <img src="../imagenes/LOGO1.png" width="50" height="28">
+                    </a>
+
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                      <span aria-hidden="true"></span>
+                      <span aria-hidden="true"></span>
+                      <span aria-hidden="true"></span>
+                    </a>
+                  </div>
+
+                  <div id="navbarBasicExample" class="navbar-menu">
+                    <div  class="navbar-start" >
+                      
+                      <div runat = server id="Pedido" visible="false" class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                          Pedidos
+                        </a>
+
+                        <div class="navbar-dropdown">
+                          <a class="navbar-item"  href="../pages/ListaPedidos.aspx">
+                            Lista de Pedidos
+                          </a>
+                             <hr class="navbar-divider">
+                                <a class="navbar-item" href="../Pages/MigracionVentas.aspx">
+                              Migrar Registros de Ventasa
+                            </a>
+
+                            <hr class="navbar-divider">
+                              <a class="navbar-item" href="../pages/Crear_pedido.aspx">
+                            Crear Pedido
+                          </a>
+                        
+                         
+                             <hr class="navbar-divider">
+                         <a class="navbar-item" href="../pages/Cargar_Despachos_Externos.aspx">
+                           Importar Pedidos Externos Despacho
+                         </a>
+
+                                 <hr class="navbar-divider">
+                         <a class="navbar-item" href="../pages/Listar_para_coordinar.aspx">
+                           Pedidos para planificación Despacho
+                         </a>
+                         
+                                 <hr class="navbar-divider">
+                                <a class="navbar-item" href="../pages/CierrePedidos.aspx">
+                                  Cierre de Pedidos
+                                </a>
+
+                        </div>
+                      </div>
+
+
+
+                           <div runat = server id="Armado" visible="false" class="navbar-item has-dropdown is-hoverable">
+                              <a class="navbar-link">
+                                Armado de Pedidos
+                              </a>
+
+                              <div class="navbar-dropdown">
+                                <a class="navbar-item" href="../pages/preBatch.aspx">
+                                   Verificar Proceso Pre Batch
+                                 </a>
+                                  <hr class="navbar-divider">
+                                  <a class="navbar-item" href="../pages/CrearBatch.aspx">
+                                  Proceso Batch
+                                </a>
+                                <hr class="navbar-divider">
+                                <a class="navbar-item" href="../pages/Lista_productos_Bach.aspx">
+                                  Retiro Productos para Armado
+                                </a>
+
+                                    <hr class="navbar-divider">
+                                      <a class="navbar-item" href="../pages/Armado_pedido.aspx">
+                                        Generación de Armado 
+                                    </a>
+                                     <hr class="navbar-divider">
+                                      <a class="navbar-item" href="../pages/Armado_pedido_mayorista.aspx">
+                                        Generación de Armado Mayoristas
+                                    </a>
+                                        <hr class="navbar-divider">
+                                    <a class="navbar-item" href="../pages/ConsultaBach.aspx">
+                                        Consulta Batch
+                                    </a>
+
+   
+                              </div>
+                            </div>
+
+
+
+
+
+                     <div runat = server id="Despacho" visible="false" class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                      Despachos
+                    </a>
+
+                    <div class="navbar-dropdown">
+                      <a class="navbar-item"  href="../pages/Planificador.aspx">
+                        Planificador de Pedidos
+                      </a>
+                        <hr class="navbar-divider">
+                      <a class="navbar-item" href="../pages/mapaver.aspx">
+                        Despachar
+                      </a>
+                           <hr class="navbar-divider">
+                     <a class="navbar-item" href="../pages/poligono.aspx">
+                       Poligono
+                     </a>
+                     
+                    </div>
+                  </div>
+
+
+                     <div runat = server id="Bodega" visible="false" class="navbar-item has-dropdown is-hoverable">
+                          <a class="navbar-link">
+                            Bodega
+                          </a>
+
+                          <div class="navbar-dropdown">
+                            <a class="navbar-item" href="../pages/Productos.aspx">
+                              Carga Nuevos Productos
+                            </a>
+                              <hr class="navbar-divider">
+                            <a class="navbar-item" href="../pages/Movimientos_Bodega.aspx">
+                              Ingreso Productos por Unidad
+                              </a>
+                                 <hr class="navbar-divider">
+                             <a class="navbar-item" href="../pages/Movimientos_Bodega_Lote.aspx">
+                               Ingreso Productos por Lote
+                             </a>
+
+                                  <hr class="navbar-divider">
+                                <a class="navbar-item" href="../pages/sacar_productos.aspx">
+                                  Salida Productos 
+                                </a>
+
+                                <hr class="navbar-divider">
+                                <a class="navbar-item" href="../pages/Consultar_Bodega_Stock_Mov.aspx">
+                                  Consultar Stock Bodega y Movimientos 
+                                </a>
+                               <hr class="navbar-divider">
+                                 <a class="navbar-item" href="../pages/BuscarpedidoporSku.aspx">
+                                   Consultar Pedido por SKU 
+                                 </a>
+
+                               
+
+                         
+                          </div>
+                     </div>
+
+                      <div runat = server id="Configura" visible="false" class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                          Configuración
+                        </a>
+
+                        <div class="navbar-dropdown">
+                          <a class="navbar-item" href="../pages/Registrarse.aspx">
+                            Administrar Usuarios
+                          </a>
+                            <a class="navbar-item" href="../pages/Seller.aspx">
+                              Administrar Sellers
+                            </a>
+                       </div>
+                      </div>
+                           <div runat = server id="Seller" visible="false" class="navbar-item has-dropdown is-hoverable">
+                              <a class="navbar-link">
+                                Mi Perfil Seller
+                              </a>
+
+                              <div class="navbar-dropdown">
+                              
+                                    <a class="navbar-item" href="../pages/Stock.aspx">
+                                            Resumen de Mi Bodega
+                                          </a>
+                               <hr class="navbar-divider">
+                                  
+                                  <a class="navbar-item" href="../pages/Mibodega.aspx">
+                                    Buscar En Mi Bodega  
+                                </a>
+                                  <hr class="navbar-divider">
+                                <a class="navbar-item" href="../pages/MisVentas.aspx">
+                                  Estados de Mis Pedidos
+                                </a>
+   
+
+                              </div>
+                            </div>
+                    </div>
+
+                       
+
+
+
+                      <div class="navbar-end has-text-centered navbar-brand">
+
+                            <div runat="server" id="divuser" class="navbar-item has-dropdown is-hoverable">
+                            <asp:Label CssClass="navbar-link" runat="server" ID="lblusuario"></asp:Label>
+                            <div class="navbar-dropdown">
+                                <asp:Button text="Salir" runat="server" CssClass="button is-white" OnClick="Unnamed_Click2"/>
+                                <asp:Button text="Inicio" runat="server" CssClass="button is-white" OnClick="Unnamed_Click3"/>
+                                 </div>
+                        </div>
+                      <div>
+
+
+
+                      </div>
+
+
+
+                    <div class="navbar-item" runat="server" id="divbuttons">
+                            <div class="buttons">
+                               <asp:Button text="Registrarse" runat="server" CssClass="button is-primary" OnClick="Unnamed_Click"/>
+                               <asp:Button text="Iniciar sesión" runat="server" CssClass="button is-light" OnClick="Unnamed_Click1"/>
+                            </div>
+                     </div>
+
+                    </div>
+                  </div>
+                </nav>
+ 
+ 
+ 
+        </header>
+
+        <div>
+            <asp:ContentPlaceHolder ID="body" runat="server">
+
+            </asp:ContentPlaceHolder>
+        </div>
+        <footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>ICMA</strong> Dearrollado por Ivan Carreño y Miguel Antunez. Website pertenece a lastlink.
+    </p>
+  </div>
+</footer>
+    </form>
+</body>
+</html>
+
